@@ -16,3 +16,12 @@ Gray.
 Negative.
 <img width="1280" alt="Gaussian blur" src="https://user-images.githubusercontent.com/96742105/171345134-cbbb419e-265c-4d15-b474-a62e492d7674.png">
 Gaussian blur
+<img width="1280" alt="draw" src="https://user-images.githubusercontent.com/96742105/171345620-cddde3ea-bb25-4dae-9755-8aa98a380714.png">
+The function "Draw" gives u possibility to draw and the "Reset" cencel all the changes
+<img width="1280" alt="Crop" src="https://user-images.githubusercontent.com/96742105/171346361-275015fd-b77e-4c67-961b-e4c16b96d9b6.png">
+The function Crop gives u possibility to crop the picture
+<img width="1280" alt="Ala-too" src="https://user-images.githubusercontent.com/96742105/171346702-9301a43e-7d2a-4ed9-91ca-00690e92c3d7.png">
+The pressing button Ala-too  opens infomation about the University
+<img width="1280" alt="Adjusttt" src="https://user-images.githubusercontent.com/96742105/171347082-a2aa94eb-8f6e-4ab1-b1bb-1e938d3aa06d.png">
+Adjust button opens the possibility to change contrast
+
