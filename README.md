@@ -7,4 +7,8 @@ If u press that the alatoo icon there will open possibility to choose and put ur
 <img width="1280" alt="functions" src="https://user-images.githubusercontent.com/96742105/171337971-7a6706ff-77e2-4b46-a5cf-e9cf48c06785.png">
 after choosing the picture functions will appear
 <img width="1280" alt="embress" src="https://user-images.githubusercontent.com/96742105/171339614-5723d370-d1dd-4a5a-8eac-9d0987649253.png">
-there is function 
+this is function called Filter and it has 4 parameters such as:
+<img width="1280" alt="em" src="https://user-images.githubusercontent.com/96742105/171344068-eaf586ef-547a-4e8b-ad33-a146b0e4090a.png">
+Embress
+
+
