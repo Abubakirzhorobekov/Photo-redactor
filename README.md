@@ -24,4 +24,7 @@ The function Crop gives u possibility to crop the picture
 The pressing button Ala-too  opens infomation about the University
 <img width="1280" alt="Adjusttt" src="https://user-images.githubusercontent.com/96742105/171347082-a2aa94eb-8f6e-4ab1-b1bb-1e938d3aa06d.png">
 Adjust button opens the possibility to change contrast
+<img width="1280" alt="gg" src="https://user-images.githubusercontent.com/96742105/171350032-08fd4615-ba95-4410-8eed-80d94136de6c.png">
+The buttons in the bot such as "delete,rotate,mirror,previous,next" are also working
+
 
