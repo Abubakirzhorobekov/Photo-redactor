@@ -9,6 +9,10 @@ after choosing the picture functions will appear
 <img width="1280" alt="embress" src="https://user-images.githubusercontent.com/96742105/171339614-5723d370-d1dd-4a5a-8eac-9d0987649253.png">
 this is function called Filter and it has 4 parameters such as:
 <img width="1280" alt="em" src="https://user-images.githubusercontent.com/96742105/171344068-eaf586ef-547a-4e8b-ad33-a146b0e4090a.png">
-Embress
-
-
+Embress.
+<img width="1280" alt="gray" src="https://user-images.githubusercontent.com/96742105/171344645-d6c40681-3354-4aa2-a821-4249b7a2005a.png">
+Gray.
+<img width="1280" alt="negative" src="https://user-images.githubusercontent.com/96742105/171345074-fd050a17-b32b-43bf-8b4f-e96c9843902a.png">
+Negative.
+<img width="1280" alt="Gaussian blur" src="https://user-images.githubusercontent.com/96742105/171345134-cbbb419e-265c-4d15-b474-a62e492d7674.png">
+Gaussian blur
