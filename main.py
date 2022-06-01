@@ -11,7 +11,6 @@ class gain(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self.splash_frame = None
-
         self.configure(background="sky blue")
 
         window_width, window_height = 580, 580
@@ -20,9 +19,8 @@ class gain(tk.Tk):
         x_co = int(screen_width / 2 - window_width / 2)
         y_co = int(screen_height / 2 - window_height / 2) - 100
 
-
-
         self.loading_label = None
+        self.text_alatoo_status = False
 
         self.geometry(f"{window_width}x{window_height}+{x_co}+{y_co}")
 
@@ -119,7 +117,7 @@ class gain(tk.Tk):
         self.error_icon = self.error_icon.resize((40, 40), Image.ANTIALIAS)
         self.error_icon = ImageTk.PhotoImage(self.error_icon)
 
-        self.open_image_icon = Image.open('c:\\Users\\adilet\\Desktop\\ABU\\open.jpg')
+        self.open_image_icon = Image.open('c:\\Users\\adilet\\Desktop\\ABU\\logo.png')
         self.open_image_icon = self.open_image_icon.resize((350, 350), Image.ANTIALIAS)
         self.open_image_icon = ImageTk.PhotoImage(self.open_image_icon)
 
@@ -144,8 +142,6 @@ class gain(tk.Tk):
         color_picker_icon = ImageTk.PhotoImage(color_picker_icon)
 
         heading = tk.Label(self.image_editor_window, text=" ANIME REDACTOR", background="sky blue", font="lucida 12 bold")
-
-
         heading.pack(fill="x")
 
         self.image_canvas = tk.Canvas(self.image_editor_window, bd=0, highlightbackground="#41729F", background="#C3E0E5")
@@ -155,10 +151,8 @@ class gain(tk.Tk):
         self.image_canvas.pack(fill="both", expand=True)
 
         self.button_frame_color = "#0088cc"
-
         self.button_frame2 = tk.Frame(self.image_editor_window, background=self.button_frame_color)
         self.button_frame2.pack(fill="x")
-
         self.button_frame = tk.Frame(self.button_frame2, background=self.button_frame_color)
         self.button_frame.pack()
 
@@ -280,10 +274,9 @@ class gain(tk.Tk):
                                            compound='top', text="ABOUT ALA-TOO",
                                            font="lucida 12 bold", foreground="white", bd=0, background="gray", )
 
-
         self.txtLabel_button.bind("<Enter>", lambda e: mouse_hover(self.txtLabel_button, color='#0088cc'))
         self.txtLabel_button.bind("<Leave>", lambda e: mouse_not_hover(self.txtLabel_button))
-        self.txtLabel_button.place(x=690, y=500)
+        self.txtLabel_button.place(x=790, y=900)
 
         self.error_b = tk.Button(self.image_editor_window, text="It appears that we don't support this file format.",
                                  image=self.error_icon, compound="left", font="lucida 11 bold",
@@ -338,22 +331,20 @@ class gain(tk.Tk):
 
     def ala_too(self):
 
-        tk.Label(text='''Ala-Too International University.
-                                    The state governing body of the university is the Ministry of Education and Science of 
-                                    the Kyrgyz Republic.
-                                    The founder of Ala-Too International University is Sapat International 
-                                    Educational Institutions.
-                                    Ala-Too International University (AIU) was established in 1996 and it is located in Bishkek, 
-                                    the Kyrgyz Republic.
-                                    AIU is a legal entity, carries out its activities in accordance with the legislation of the 
-                                    Kyrgyz Republic.
-                                    ''').pack()
-        self.txtLabel_button.pack()
-
-
-
-
-
+        if not self.text_alatoo_status:
+            tk.Label(text='''Ala-Too International University.
+                                        The state governing body of the university is the Ministry of Education and Science of 
+                                        the Kyrgyz Republic.
+                                        The founder of Ala-Too International University is Sapat International 
+                                        Educational Institutions.
+                                        Ala-Too International University (AIU) was established in 1996 and it is located in Bishkek, 
+                                        the Kyrgyz Republic.
+                                        AIU is a legal entity, carries out its activities in accordance with the legislation of the 
+                                        Kyrgyz Republic.
+                                        ''').pack()
+            self.txtLabel_button.pack()
+        else:
+            self.text_alatoo_status = True
 
     def open_image(self):
         file_object = filedialog.askopenfile(filetype=(('jpg', '*.jpg'), ('png', '*.png')))
@@ -414,7 +405,6 @@ class gain(tk.Tk):
         if self.error:
             self.error_b.place_forget()
             self.error = None
-
         im = None
         if image:
             try:
@@ -521,14 +511,12 @@ class gain(tk.Tk):
 
                 self.image_canvas.configure(cursor='pencil')
                 self.draw_save.place(x=1240, y=800)
-
                 self.draw_b.configure(image=self.checked_icon)
                 self.open_image_button.place_forget()
                 self.button_frame.pack_forget()
                 self.side_frame.place_forget()
                 self.crop_b.place_forget()
                 self.save_b.place_forget()
-
                 print("draw activated..")
                 self.draw_active = True
             else:
@@ -545,7 +533,7 @@ class gain(tk.Tk):
                 self.draw_active = False
                 self.button_frame.pack()
 
-                self.side_frame.place(x=1418, y=114)
+                self.side_frame.place(x=1418, y=620)
                 self.save_b.place(x=1418, y=680)
                 self.crop_b.place(x=1390, y=232)
                 self.open_image_button.place(x=1407, y=720)
@@ -611,8 +599,6 @@ class gain(tk.Tk):
                 if x_co_2 > event.x > x_co_1 and y_co_1 < event.y < y_co_2:
                     lines = self.image_canvas.create_line(self.point_x, self.point_y, event.x, event.y,
                                                           fill=self.pencil_color, width=self.pencil_size)
-
-
                     x_co_1, y_co_1, x_co_2, y_co2 = ((self.point_x - self.image_x_co) * self.current_image_size[0])/self.current_resized_image_size[0], ((self.point_y - self.image_y_co)*self.current_image_size[1])/self.current_resized_image_size[1], ((event.x - self.image_x_co)*self.current_image_size[0])/self.current_resized_image_size[0], ((event.y - self.image_y_co)*self.current_image_size[1])/self.current_resized_image_size[1]
 
                     img = ImageDraw.Draw(self.image_before_draw)
@@ -627,12 +613,10 @@ class gain(tk.Tk):
 
             self.image_copy = self.image_copy.crop((int(x_co_1), int(y_co_1), int(x_co_2), int(y_co2)))
             x_co_1, y_co_1, x_co_2, y_co2 = self.point_x - self.image_x_co, self.point_y - self.image_y_co, self.event_x - self.image_x_co, self.event_y - self.image_y_co
-
             self.save()
         else:
             messagebox.showinfo(title="Can't crop !", message="Please select the portion of the image,"
                                                               " you want to crop")
-
     def image_after_draw(self):
         if self.lines_drawn:
             self.image_copy = self.image_before_draw
@@ -728,20 +712,15 @@ class gain(tk.Tk):
     def return_window(self, master):
         command = lambda: master.switch_frame(tk.Tk)
 
-
-
 def mouse_not_hover(button, color=None):
     if not color:
         color = 'black'
     button.configure(bg=color)
 
-
 def mouse_hover(button, color=None):
     if not color:
         color = '#473f3f'
     button.configure(bg=color)
-
-
 
 class Adjustments(tk.Toplevel):
     def __init__(self, parent, image_copy, modified_img, image_copy_resized, modified_img_resized):
@@ -753,13 +732,10 @@ class Adjustments(tk.Toplevel):
         self.grab_set()
         self.winfo_parent()
         self.geometry("260x280+1200+100")
-
         self.image_copy = image_copy
         self.modified_img = modified_img
-
         self.image_copy_resized = image_copy_resized
         self.modified_img_resized = modified_img_resized
-
         self.modifications = {'contrast': 1.0, 'sharpness': 1.0, 'brightness': 1.0}
 
         background_color1 = '#19191a'
@@ -845,85 +821,58 @@ class Adjustments(tk.Toplevel):
 
                             im = ImageTk.PhotoImage(self.modified_img_resized)
                             self.parent.show_image(modified=im)
-
                             im2 = self.modified_img
                             im2_resized = self.modified_img_resized
-
                         elif property_ == 'contrast':
-
                             enhancer = ImageEnhance.Contrast(im2)
                             self.modified_img = enhancer.enhance(value)
-
                             enhancer = ImageEnhance.Contrast(im2_resized)
                             self.modified_img_resized = enhancer.enhance(value)
-
                             im = ImageTk.PhotoImage(self.modified_img_resized)
                             self.parent.show_image(modified=im)
-
                             im2 = self.modified_img
                             im2_resized = self.modified_img_resized
-
                         elif property_ == 'brightness':
-
                             enhancer = ImageEnhance.Brightness(im2)
                             self.modified_img = enhancer.enhance(value)
-
                             enhancer = ImageEnhance.Brightness(im2_resized)
                             self.modified_img_resized = enhancer.enhance(value)
-
                             im = ImageTk.PhotoImage(self.modified_img_resized)
                             self.parent.show_image(modified=im)
-
                             im2 = self.modified_img
                             im2_resized = self.modified_img_resized
-
                 if changes == 'sharpness':
                     self.modifications['sharpness'] = int(e) / 10
-
                     enhancer = ImageEnhance.Sharpness(self.modified_img)
                     self.modified_img = enhancer.enhance(int(e) / 10)
-
                     enhancer = ImageEnhance.Sharpness(self.modified_img_resized)
                     self.modified_img_resized = enhancer.enhance(int(e) / 10)
-
                     im = ImageTk.PhotoImage(self.modified_img_resized)
                     self.parent.show_image(modified=im)
-
                 elif changes == 'contrast':
                     self.modifications['contrast'] = int(e) / 10
-
                     enhancer = ImageEnhance.Contrast(self.modified_img)
                     self.modified_img = enhancer.enhance(int(e) / 10)
-
                     enhancer = ImageEnhance.Contrast(self.modified_img_resized)
                     self.modified_img_resized = enhancer.enhance(int(e) / 10)
-
                     im = ImageTk.PhotoImage(self.modified_img_resized)
                     self.parent.show_image(modified=im)
-
                 elif changes == 'brightness':
                     self.modifications['brightness'] = int(e) / 10
-
                     enhancer = ImageEnhance.Brightness(self.modified_img)
                     self.modified_img = enhancer.enhance(int(e) / 10)
-
                     enhancer = ImageEnhance.Brightness(self.modified_img_resized)
                     self.modified_img_resized = enhancer.enhance(int(e) / 10)
-
                     im = ImageTk.PhotoImage(self.modified_img_resized)
                     self.parent.show_image(modified=im)
-
     def cancel(self):
         self.grab_release()
-
         im = ImageTk.PhotoImage(self.image_copy_resized)
         self.parent.show_image(modified=im)
         self.destroy()
-
     def apply(self):
         self.modifications = {'contrast': 1.0, 'sharpness': 1.0, 'brightness': 1.0}
         self.grab_release()
-
         for i in (self.brightness_b, self.contrast_b, self.sharpness_b):
             if i.get() != 10:
                 self.parent.save_b.configure(state="normal")
@@ -931,11 +880,9 @@ class Adjustments(tk.Toplevel):
 
         self.parent.image_copy = self.modified_img
         self.parent.image_copy_resized = self.modified_img_resized
-
         im = ImageTk.PhotoImage(self.parent.image_copy_resized)
         self.parent.show_image(modified=im)
         self.destroy()
-
 
 class Filters(tk.Toplevel):
     def __init__(self, parent, image_copy, modified_img, image_copy_resized, modified_img_resized):
@@ -947,12 +894,9 @@ class Filters(tk.Toplevel):
         self.winfo_parent()
         self.geometry("150x250+1328+100")
         self.filter_ = None
-
         self.parent = parent
-
         self.image_copy = image_copy
         self.modified_img = modified_img
-
         self.image_copy_resized = image_copy_resized
         self.modified_img_resized = modified_img_resized
 
@@ -1058,9 +1002,6 @@ class Filters(tk.Toplevel):
         im = ImageTk.PhotoImage(self.parent.image_copy_resized)
         self.parent.show_image(modified=im)
         self.destroy()
-
-
-
 
 if __name__ == "__main__":
     pythonProject=gain()
